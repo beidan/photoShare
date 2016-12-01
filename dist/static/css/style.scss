@@ -1,0 +1,85 @@
+@import "base/base";
+
+
+html,body{
+  width: 100%;
+  overflow-x:hidden;
+  min-width: 320px;
+  height:100%;
+  background-color:#f4f4f4;
+  .iconfont{
+    font-size: px2rem(36);
+  }
+}
+
+.btn-s{
+  display: block;
+  background-color: #6ac577;
+  width: px2rem(100);
+  height: px2rem(50);
+  line-height:px2rem(50);
+  text-align: center;
+  color: #fff;
+  font-size: px2rem(22);
+  border-radius: px2rem(8);
+}
+.btn-b{
+  display: block;
+  background-color: $bColor;
+  width: 90%;
+  height: px2rem(80);
+  line-height:px2rem(80);
+  text-align: center;
+  color: #fff;
+  font-size: px2rem(32);
+  border-radius: px2rem(8);
+  margin: 0 auto;
+}
+time{
+  color: #999;
+  font-size: px2rem(20);
+  line-height: px2rem(20);
+}
+.user-link{
+  position:relative;
+  margin-top: px2rem(20);
+  background-color:#fff;
+  li{
+    position:relative;
+    height: px2rem(90);
+    line-height: px2rem(90);
+    padding: 0 px2rem(20);
+    border-bottom:1px solid #eee;
+    box-sizing: border-box;
+    a{
+      position: relative;
+      display: block;
+    }
+  }
+  .Hui-iconfont-yiguanzhu{
+    color: #5197f9;
+  }
+  .Hui-iconfont-feedback1{
+    color: #f9616d;
+  }
+  .Hui-iconfont-star{
+    color: #ffd256;
+  }
+  .Hui-iconfont-comment{
+    color: #90883c;
+  }
+  .txt{
+    color: #333;
+    font-size: px2rem(32);
+  }
+
+}
+.icon-right{
+  position: absolute;
+  right: px2rem(20);
+  top:50%;
+  margin-top: px2rem(-15);
+  font-size: px2rem(30);
+  line-height:px2rem(30);
+  color: #999;
+}

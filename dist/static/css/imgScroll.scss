@@ -1,0 +1,29 @@
+@import "base/min";
+
+.img-scroll{
+  position:relative;
+  width: 100%;
+  overflow: hidden;
+  ul{
+    transition:1s ease;
+    -webkit-transition:1s ease;
+    position: relative;
+    width: 100%;
+    right:0;
+    overflow: hidden;
+    height: px2rem(300);
+  }
+  li{
+    width: px2rem(750);
+    height: px2rem(300);
+    float: left;
+    a{
+      display: block;
+      width: 100%;
+    }
+    img{
+      width: 100%;
+      height: px2rem(300);
+    }
+  }
+}
