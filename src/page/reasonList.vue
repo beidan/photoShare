@@ -2,14 +2,12 @@
   <div>
     <com-list v-bind:list-data="resData"></com-list>
     <div class="tip" v-show="empty">暂无数据{{tip}}～</div>
-    <com-loading v-if="loading"></com-loading>
   </div>
 </template>
 
 <script>
   import list from '../components/list.vue'
   import axios from 'axios'
-  import loading from '../components/loading.vue'
 
   export default{
     data: function () {
@@ -34,6 +32,11 @@
         search = false
         back = true
         this.tip = '赶紧去收藏'
+      } else if (type === 'userStar') {
+        titles = '收藏用户'
+        search = false
+        back = true
+        this.tip = '赶紧去收藏'
       } else if (type === 'msg') {
         titles = '最新动态'
         search = false
@@ -46,6 +49,7 @@
         search = true
         back = false
       }
+      this.$store.commit('isLoading', true)
       this.fetchData(type)
       this.$store.commit('changeIndexConf', {
         isFooter: true,
@@ -60,8 +64,7 @@
       }
     },
     components: {
-      comList: list,
-      comLoading: loading
+      comList: list
     },
     computed: {
       loading: function () {
@@ -90,7 +93,7 @@
             url = baseUrl + 'sharedapi/viewCollect'
             params = {
               'memberId' : memberId,
-              'choice': '1'
+              'choice': '2'
             }
         }else if (type === 'msg') {
             url = baseUrl + 'sharedapi/listOneMinuteShared'
@@ -104,18 +107,27 @@
           url = baseUrl + 'sharedapi/viewOwnShared'
           params = {
             'choice' : 2,
-            'othermemberid': this.$route.query.id
+            'otherMemberId': this.$route.query.id
+          }
+        }else if(type === 'userStar'){
+          url = baseUrl + 'sharedapi/viewCollect'
+          params = {
+            'memberId' : memberId,
+            'choice': '1'
           }
         }
         axios.get(url, {
           params: params
         }).then(function (res) {
+          vm.$store.commit('isLoading', false)
+
           if(res.data.data.length === 0){
             vm.empty = true
           }else{
             vm.empty = false
           }
           vm.resData = res.data
+
         }).catch(function (error) {
           console.log(error)
         })
@@ -123,64 +135,7 @@
     }
   }
 </script>
-<style lang="scss">
-  /*基础font-size*/
-  $font:16;
-  /*设计稿宽度*/
-  $screen:750;
-  /*主色*/
-  $bColor: #f9696c;
-  $fontC:#666 ;
-  @function px2rem($n) {
-  @return #{$n/($screen*$font/320)}rem
-  }
-  .index {
-    position: relative;
-
-  .center {
-    display: flex;
-    margin-top: px2rem(20);
-    justify-content: center;
-    align-items: center;
-    background-color: #fff;
-
-  .actived {
-
-  p {
-    color: $bColor !important;
-  }
-
-  }
-  .list {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: px2rem(20) 0;
-
-  p {
-    text-align: center;
-    color: $fontC;
-    font-size: px2rem(30);
-  }
-
-  span {
-    display: block;
-    margin: 0 auto;
-    font-size: px2rem(60);
-    line-height: px2rem(60);
-  }
-
-  }
-  }
-  .btn {
-    width: px2rem(100);
-    height: px2rem(40);
-    display: block;
-    margin: 0 auto;
-  }
-
-  }
+<style lang="scss" scope>
   .tip{
     position: fixed;
     top: 180px;

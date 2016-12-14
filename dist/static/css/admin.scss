@@ -1,0 +1,46 @@
+@import "base/min";
+
+.com-homeuserinfo{
+  .user-icon{
+    height: px2rem(150);
+    line-height: px2rem(150);
+    img{
+      position: absolute;
+      right: px2rem(60);
+      width: px2rem(100);
+      height: px2rem(100);
+      border-radius: 100%;
+      top:px2rem(25);
+    }
+
+  }
+  p{
+    position: absolute;
+    right: px2rem(60);
+    color: #999;
+    font-size: px2rem(32);
+    top:0;
+    line-height: px2rem(90);
+  }
+}
+.forbid{
+  font-size: .5rem;
+  color: gray;
+
+  .forbidAction{
+    float:right;
+
+    >span{
+      color:red;
+      font-size: .8rem;
+      padding: 0px 5px;
+
+      >span{
+        font-size: .8rem;
+      }
+    }
+  }
+}
+.sex{
+  float: right;
+}

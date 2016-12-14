@@ -1,13 +1,28 @@
 <template>
   <div class="index">
+    <img src="static/images/03.jpg" alt="">
+    <div class="center">
+      <a href="#/index/fresh" class="list" types="fresh" v-bind:class="{ actived: isActive }"
+         @click="toggle('fresh')"><p>
+        最新动态</p></a>
+      <a href="#/index/hot#1" class="list" types="hot" v-bind:class="{ actived: !isActive }"
+         @click="toggle('hot')"><p>
+        热门话题</p></a>
+    </div>
+    <div v-show="isHot">
+      <select @change="change" >
+        <option value="1">全部</option>
+        <option value="2">最近一周</option>
+        <option value="3">今天</option>
+      </select>
+      <span class="arrow"></span>
+    </div>
     <com-list v-bind:list-data="resData"></com-list>
-    <com-loading v-if="loading"></com-loading>
   </div>
 </template>
 
 <script>
-  import list from '../components/list.vue'
-  import loading from '../components/loading.vue'
+  import list from '../components/list'
   import axios from 'axios'
 
   export default{
@@ -15,11 +30,22 @@
       return {
         data: 'index',
         num: 1,
-        resData: {}
+        resData: {},
+        isActive: true,
+        isHot: false
       }
     },
     created () {
-      this.fetchData()
+      let type = this.$route.params.type
+      let hash = this.$route.hash
+
+      if(hash !== '') {
+        this.isHot = true
+        this.fetchData('hot',hash.substring(1))
+        this.isActive = false
+      }else{
+        this.fetchData(type)
+      }
       // head的修改
       this.$store.commit('changeIndexConf', {
         isFooter: true,
@@ -29,98 +55,71 @@
       })
     },
     components: {
-      comList: list,
-      comLoading: loading
+      comList: list
     },
-    computed: {
-      loading: function () {
-        return this.$store.state.comm.loading
+    computed: {},
+    watch: {
+      '$route' (to, from) {
+        let hash = this.$route.hash
+        if(hash === '') {
+          this.isHot = false
+          this.fetchData(this.$route.params.type)
+        }else {
+          this.fetchData('hot',hash.substring(1))
+          this.isHot = true
+        }
       }
     },
     methods: {
-      randomNum: function () {
-        return {}
-      },
-      dothis: function () {
-//                console.log('eee');
-      },
-      fetchData: function () {
-        var vm = this
+      fetchData: function (type,cho) {
+        let vm = this
         vm.$store.commit('isLoading', true)
-        /*获取最新列表信息*/
+
+        let url,params
+        let baseUrl = vm.$store.state.comm.apiUrl
         let memberId = localStorage.getItem('memberId')
-        let url = 'http://www.sherlochao.com:9091/photosharing/sharedapi/listOneMinuteShared'
-        axios.get(url,{
-          params: {
+
+        if(type === 'hot'){
+          url = baseUrl + 'thumbsupapi/listThumbs'
+          params = {
+            'choice' : cho,
+            'memberId': memberId
+          }
+        }else if(type === 'fresh'){
+          url = baseUrl + 'sharedapi/listOneMinuteShared'
+          params = {
             memberId : memberId
           }
+        }
+        /*获取最新列表信息*/
+        axios.get(url,{
+          params: params
         }).then(function (res) {
           vm.resData = res.data
           vm.$store.commit('isLoading', false)
         }).catch(function (error) {
           console.log(error)
         })
+      },
+      toggle: function () {
+        let node = event.target,types
+        if (node.attributes.class) {
+          types = node.attributes.class.value
+        } else if (node.parentNode.attributes.class) {
+          types = node.parentNode.attributes.class.value
+        }
+        if (types === 'list') {
+          this.isActive = !this.isActive
+        }
+      },
+      change:function () {
+        let value = event.target.value
+        location.hash = 'index/hot#'+ value
       }
     }
   }
 
 </script>
 <style lang="scss">
-  /*基础font-size*/
-  $font:16;
-  /*设计稿宽度*/
-  $screen:750;
-  /*主色*/
-  $bColor: #f9696c;
-  $fontC:#666;
-  @function px2rem($n) {
-  @return #{$n/($screen*$font/320)}rem
-  }
-  .index {
-    position: relative;
-
-  .center {
-    display: flex;
-    margin-top: px2rem(20);
-    justify-content: center;
-    align-items: center;
-    background-color: #fff;
-
-  .actived {
-
-  p {
-    color: $bColor !important;
-  }
-
-  }
-  .list {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: px2rem(20) 0;
-
-  p {
-    text-align: center;
-    color: $fontC;
-    font-size: px2rem(30);
-  }
-
-  span {
-    display: block;
-    margin: 0 auto;
-    font-size: px2rem(60);
-    line-height: px2rem(60);
-  }
-
-  }
-  }
-  .btn {
-    width: px2rem(100);
-    height: px2rem(40);
-    display: block;
-    margin: 0 auto;
-  }
-
-  }
+  @import "../../static/css/index.scss";
 </style>

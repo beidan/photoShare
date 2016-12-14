@@ -16,6 +16,12 @@ const store = new Vuex.Store({
     // 公共
     comm: {
       loading: false,
+      login: {
+        memberId: '',
+        userData: ''
+      },
+      apiUrl: 'http://www.sherlochao.com:9091/photosharing/',
+      imgUrl: 'http://www.sherlochao.com:9091/filebase',
       indexConf: {
         isFooter: true, // 是否显示底部
         isSearch: true, // 是否显示搜索
@@ -51,7 +57,32 @@ const store = new Vuex.Store({
      * */
     changeIndexConf: (state, data) => {
       Object.assign(state.comm.indexConf, data)
+    },
+    isLogin: (state,data) => {
+      localStorage.setItem('memberId',data.memberId)
+      localStorage.setItem('userMsg',JSON.stringify(data))
+      state.comm.login.memberId = localStorage.getItem('memberId')
+      state.comm.login.userData = JSON.parse(localStorage.getItem('userMsg'))
+    },
+    logout: (state,data) => {
+      localStorage.removeItem('memberId')
+      localStorage.removeItem('userMsg')
+      state.comm.login.memberId = ''
+      state.comm.login.userData = ''
     }
+  },
+  actions: {
+
+  },
+  getter: {
+
   }
 })
 export default store
+
+
+
+
+
+
+

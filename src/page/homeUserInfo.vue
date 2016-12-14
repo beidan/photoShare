@@ -31,7 +31,7 @@
       return {
         memberAvatar:'',
         memberName:'',
-        baseUrl:'',
+        baseUrl:'http://www.sherlochao.com:9091/filebase',
         sex:''
       }
     },
@@ -53,42 +53,9 @@
         this.sex = '男'
       }
       this.memberName = JSON.parse(userMsg).memberName
-      this.baseUrl = 'http://www.sherlochao.com:9091/filebase'
     }
   }
 </script>
 <style lang="scss">
-  /*基础font-size*/
-  $font:16;
-  /*设计稿宽度*/
-  $screen:750;
-  /*主色*/
-  $bColor: #f9696c;
-  $fontC:#666;
-  @function px2rem($n){
-  @return #{$n/($screen*$font/320)}rem
-  }
-  .com-homeuserinfo{
-  .user-icon{
-    height: px2rem(150);
-    line-height: px2rem(150);
-  img{
-    position: absolute;
-    right: px2rem(60);
-    width: px2rem(100);
-    height: px2rem(100);
-    border-radius: 100%;
-    top:px2rem(25);
-  }
-
-  }
-  p{
-    position: absolute;
-    right: px2rem(60);
-    color: #999;
-    font-size: px2rem(32);
-    top:0;
-    line-height: px2rem(90);
-  }
-  }
+  @import "../../static/css/homeuserinfo.scss";
 </style>

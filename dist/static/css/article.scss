@@ -1,6 +1,5 @@
 @import "base/min";
 
-
 .com-article{
   position: relative;
   background-color: #f4f4f4;
@@ -76,6 +75,62 @@
       top:px2rem(25);
     }
   }
+}
+.operate{
+  font-size: .8rem;
+  padding: 5px 10px;
+  background-color: white;
+  margin-top: .2rem;
+  color: gray;
+}
+.zan{
+  padding-right: 1.4rem;
 
+  span{
+    padding: 0 .1rem;
+  }
+}
+.hasZan{
+  span:first-child{
+    color: #f9696c;
+  }
+}
+.kanguo{
+  padding-right: 25px;
+  span{
+    padding: 0 .1rem;
+  }
+}
+.starList{
+  background-color: white;
+  margin-top: 1px;
+  padding: 5px 10px;
+  font-size: 0.7rem;
+  color: #f9696c;
+}
+.imgbox{
+  /*height: 5.66667rem;*/
+  overflow: hidden;
+  ul{
+    width: 100%;
 
+    li{
+      width: 33%;
+      float: left;
+
+      img{
+        height: 7.66667rem !important;
+      }
+    }
+  }
+}
+
+.r3{
+  width:100% !important;
+}
+
+.Userstar{
+  position: absolute;
+  right: 10px;
+  top: 1px;
 }

@@ -1,18 +1,34 @@
 import Vue from 'vue'
 import router from './router/router'
 import store from './store/store'
-import VueResource from 'vue-resource'
 
-Vue.use(VueResource)
-
+//开启debug模式
 Vue.config.debug = true
 window.log = console.log
-// 如果在一个模块化工程中使用它，必须要通过 Vue.use() 明确地安装路由功能：
-// VueResource官方不再维护，所以使用axios
 
 let data = {
+  el:'#app',
   router,
   store
 }
 
+Vue.prototype.post = function (url,params,fn) {
+  var xhr = new XMLHttpRequest()
+  xhr.open("POST", url, true)
+  xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhr.onreadystatechange = function () {
+    var XMLHttpReq = xhr;
+    if (XMLHttpReq.readyState == 4) {
+      if (XMLHttpReq.status == 200) {
+        var text = XMLHttpReq.responseText
+        var res = JSON.parse(text)
+        fn(res)
+      }
+    }
+  }
+  xhr.send(params)
+}
+
+//创建一个app实例，并且挂载到选择符#app匹配的元素上
 new Vue(data).$mount('#app')
+

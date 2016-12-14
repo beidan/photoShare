@@ -6,11 +6,12 @@
           <a :href="route + value.memberId"><img :src="baseUrl + value.memberAvatar" alt=""/></a>
           <div class="name">
             <p>{{value.memberNickname}}</p>
-            <p class="createtime">{{value.sharedCreatetime}}</p>
+            <p v-if="value.favoriteMemberCreatetime"  class="createtime">{{value.favoriteMemberCreatetime}}</p>
+            <p class="createtime"  v-if="value.sharedCreatetime">{{value.sharedCreatetime}}</p>
           </div>
-          <router-link :to="{  name: 'article', params: { id: value.sharedId }}" class="btn-d btn-s">详情</router-link>
+          <router-link :to="{  name: 'article', params: { id: value.sharedId }}" class="btn-d btn-s"  v-if="value.photos">详情</router-link>
         </div>
-        <div class="detail">
+        <div class="detail" v-if="value.photos">
           <p>{{value.sharedContent}}</p>
           <ul :class="['clearfix','img-box',{r3:value.photos.length>1?true:false}]">
             <li v-for="item in value.photos">
@@ -34,7 +35,8 @@
     doListData: {},
     baseUrl: 'http://www.sherlochao.com:9091/filebase',
     memberId: localStorage.getItem('memberId'),
-    route:'#/search/user?id='
+    route:'#/search/user?id=',
+    user: ''
   }
 
   export default{
@@ -68,7 +70,7 @@
         }
         axios.get(url, {
           params: {
-            sharedId: id,
+            sharedId: id,　
             memberId: this.memberId,
             memberNickname:'test',
             choice: choice
@@ -106,159 +108,11 @@
         }).catch(function (error) {
           console.log(error)
         })
-        console.log('e')
       }
     }
   }
 </script>
 
 <style lang="scss">
-  /*基础font-size*/
-  $font:16;
-  /*设计稿宽度*/
-  $screen:750;
-  /*主色*/
-  $bColor: #f9696c;
-  $fontC:#666;
-  @function px2rem($n){
-  @return #{$n/($screen*$font/320)}rem
-  }
-  .com-list{
-    position: relative;
-    margin-top: px2rem(20);
-    margin-bottom: px2rem(120);
-    background-color: #f4f4f4;
-  .title{
-    position: relative;
-    height:px2rem(60);
-    background: #fff;
-    font-size: px2rem(30);
-    color: $fontC;
-    line-height: px2rem(60);
-    text-align: center;
-    border-bottom:1px solid #eee;
-  }
-  .list-li{
-    background-color: #fff;
-    margin-top: px2rem(20);
-    position: relative;
-    padding: 0 px2rem(15) px2rem(30);
-    box-sizing: border-box;
-  &:first-child{
-     margin-top: 0;
-   }
-  .user{
-    position: relative;
-    height: px2rem(120);
-
-  img{
-    display: block;
-    width: px2rem(100);
-    height: px2rem(100);
-    margin:px2rem(10) 0 0 px2rem(10);
-    border-radius: 100%;
-    float: left;
-  }
-  .name{
-    width: px2rem(400);
-    float: left;
-    margin-left: px2rem(20);
-  p{
-    padding-top: 0;
-    line-height: 1.6rem;
-    color: #333;
-    font-size: 0.8rem;
-  }
-  .createtime{
-    font-size: .01rem;
-    color: gray;
-  }
-
-  }
-  .tag{
-    position: relative;
-    top:0;
-    width: 100%;
-  span{
-    display: inline-block;
-    width: px2rem(60);
-    height: px2rem(30);
-    line-height: px2rem(30);
-    font-size: px2rem(14);
-    text-align: center;
-    border:1px solid $bColor;
-    background-color: #fff;
-    border-radius: px2rem(5);
-    color: $bColor;
-    margin-right: px2rem(10);
-  }
-  }
-  .btn-d{
-    position: absolute;
-    right: px2rem(15);
-    background-color: #6ac577;
-    width: px2rem(100);
-    height: px2rem(50);
-    line-height:px2rem(50);
-    text-align: center;
-    color: #fff;
-    font-size: px2rem(22);
-    border-radius: px2rem(8);
-    top:px2rem(25);
-  }
-  }
-  .detail{
-    position: relative;
-  p{
-    font-size: px2rem(26);
-    width: 100%;
-    padding: 0 px2rem(10);
-    box-sizing: border-box;
-    color: #666;
-  }
-  img{
-    width: 100%;
-    height: 100%;
-  }
-  .img-box{
-    position: relative;
-    width: 100%;
-
-  li{
-    float: left;
-    width: 100%;
-    height: px2rem(710);
-  }
-
-  &.r3{
-  li{
-    margin: 0 px2rem(5) px2rem(10);
-    width: px2rem(230);
-    height: px2rem(230);
-  }
-  }
-  }
-  }
-  }
-  }
-  .action{
-    color: #f9696c;
-  }
-  .zan{
-    padding-right: 1.4rem;
-
-    span{
-      padding: 0 .1rem;
-    }
-  }
-  .hasZan{
-    span:first-child{
-      color: #f9696c;
-    }
-  }
-  .kanguo{
-    span{
-      padding: 0 .1rem;
-    }
-  }
+  @import "../../static/css/list.scss";
 </style>

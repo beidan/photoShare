@@ -1,7 +1,7 @@
 @import "base/min";
 .com-list{
   position: relative;
-  margin-top: px2rem(20);
+  margin-top: 0.13333rem;
   margin-bottom: px2rem(120);
   background-color: #f4f4f4;
   .title{
@@ -40,10 +40,14 @@
         float: left;
         margin-left: px2rem(20);
         p{
-          padding-top: px2rem(15);
-          line-height: 2.3rem;
+          padding-top: 0;
+          line-height: 1.6rem;
           color: #333;
-          font-size: px2rem(30);
+          font-size: 0.8rem;
+        }
+        .createtime{
+          font-size: .01rem;
+          color: gray;
         }
 
       }
@@ -99,7 +103,7 @@
         li{
           float: left;
           width: 100%;
-          height: px2rem(710);
+          height: 9.93333rem;
         }
 
         &.r3{
@@ -107,13 +111,29 @@
             margin: 0 px2rem(5) px2rem(10);
             width: px2rem(230);
             height: px2rem(230);
-
-
           }
         }
       }
     }
+  }
+}
+.action{
+  color: #f9696c;
+}
+.zan{
+  padding-right: 1.4rem;
 
-
+  span{
+    padding: 0 .1rem;
+  }
+}
+.hasZan{
+  span:first-child{
+    color: #f9696c;
+  }
+}
+.kanguo{
+  span{
+    padding: 0 .1rem;
   }
 }
