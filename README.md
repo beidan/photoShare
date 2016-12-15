@@ -201,16 +201,20 @@ v-show 渲染页面结构后，通过 "display:none" 控制元素状态
 
 在父组件中导入
 
-1 import Header from './components/header'
+```
+import Header from './components/header'
+```
  
 2.直接在任何变量或者函数前面加上一个关键字
 
-``` export const sqrt = Math.sqrt;
+``` 
+export const sqrt = Math.sqrt;
 ```
 在父组件中导入
 
-```import sqrt from './components/header';
- ```
+```
+import sqrt from './components/header';
+```
 
 引用一个组件  
 ```
