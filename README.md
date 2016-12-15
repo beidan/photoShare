@@ -8,6 +8,7 @@
 
  
 webpack 基本知识点：
+
 - entry：入口点，webpack会从入口点设置的js文件开始对项目进行构建，过程中，所有入口点通过import或者require依赖的包，都会被打包到output中制定的文件和路径；
 
 - output：中设置打包好的文件的输出路径还有文件名；
@@ -34,7 +35,8 @@ npm i
 
 3. 运行
 
-```npm run dev    //npm run xxx 是执行配置在package.json中的脚本，e.g: 它会去找到package.json的scripts对象，执行node bulid/dev-server.js
+```
+npm run dev    //npm run xxx 是执行配置在package.json中的脚本，e.g: 它会去找到package.json的scripts对象，执行node bulid/dev-server.js
 ```
 
 4. 构建
@@ -49,6 +51,7 @@ module.exports = {
 }
 ```
 在静态文件 index.html 文件下， 引用静态文件
+
 ```
 <link rel="stylesheet" href="static/css/icon/iconfont.css"/>
 ```
@@ -112,6 +115,7 @@ npm install sass-loader --save-dev   //--save-dev 会将该依赖写入package.j
 }
  new Vue(data).$mount('#app')    //创建一个app实例，并且挂载到选择符#app匹配的元素上   在根目录html里面
 ```
+
  挂载到#app ，假如new vue 的时候，有显示的 el 属性
 ```
 let data = {
