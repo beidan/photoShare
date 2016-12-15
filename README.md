@@ -82,21 +82,21 @@ npm install sass-loader --save-dev   //--save-dev 会将该依赖写入package.j
 1. 项目整体目录如下
 
 ```
- 1 --build   
- 2 --config  
- 3 --dist   //npm run build 之后再生成的目录
- 4 --src  
- 5   --components   // 用于存放组件
- 6   --page    //页面组件，由vue-router引入
- 7   --router  //路由
- 8   --store   // 数据流管理
- 9   main.js   //入口文件
-10   app.vue   //主组件 
-11 --static   //静态文件目录
-12 .babelrc    
-13 .gitignore  //git忽略上传文件
-14 index.html  //静态文件入口
-15 package.json
+ --build   
+ --config  
+ --dist   //npm run build 之后再生成的目录
+ --src  
+   --components   // 用于存放组件
+   --page    //页面组件，由vue-router引入
+   --router  //路由
+   --store   // 数据流管理
+   main.js   //入口文件
+   app.vue   //主组件 
+ --static   //静态文件目录
+ .babelrc    
+ .gitignore  //git忽略上传文件
+ index.html  //静态文件入口
+ package.json
 ```
 
 2. main.js
@@ -253,8 +253,8 @@ import Header from './components/header'
    state: {
      comm: {
        loading: false,  //是否显示loading
-       apiUrl: 'http://www.sherlochao.com:9091/photosharing/',  //接口base url
-       imgUrl: 'http://www.sherlochao.com:9091/filebase',    //图片base url
+       apiUrl: 'photosharing/',  //接口base url
+       imgUrl: 'filebase',    //图片base url
        indexConf: {
          isFooter: true, // 是否显示底部
          isSearch: true, // 是否显示搜索
@@ -339,6 +339,7 @@ template代码
 由于整个项目list组件很多地方公用，并且‘我的收藏’，‘搜索结果页面’，‘我的圈子’，仅仅只是从  /search/own 到 /search/star
 此时，原来的组件实例会被复用，意味着组件的生命周期钩子不会再被调用
 解决方法：  复用组件时，想对路由参数的变化作出响应的话，可以简单地 watch（监测变化）  对象
+
 ```
  export default {
    watch: {
@@ -372,6 +373,7 @@ template代码
 - 点击事件获取当前对象
 
 event.target ， this为vue 对象
+
  
 - 和jquery类似获取当前dom对象
 ```
@@ -379,10 +381,11 @@ event.target ， this为vue 对象
  this.$refs.isSubmit.removeAttribute('disabled')   //使用this.$refs 获取当前dom
 ```
 
-更详细的介绍
-博客地址：
-http://www.cnblogs.com/beidan/p/6129891.html
-http://www.cnblogs.com/beidan/p/vue.html
+
+#### 更详细的介绍
+- 博客地址：
+- http://www.cnblogs.com/beidan/p/6129891.html
+- http://www.cnblogs.com/beidan/p/vue.html
 
 
  
