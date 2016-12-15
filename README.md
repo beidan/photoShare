@@ -1,5 +1,9 @@
 #vue
 
+### 运行方式
+1. 在根目录下 npm install  下载依赖
+2. npm run dev 
+
 ## 整体项目采用  vue +  vue-router +  vuex （传说中的vue 全家桶 ），构建工具使用尤大大推出的vue-cli
 
 ## vue-cli构建工具必知 
