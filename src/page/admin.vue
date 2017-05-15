@@ -29,7 +29,7 @@
     data: function () {
       return {
         doList:'',
-        baseUrl: 'http://www.sherlochao.com:9091/filebase'
+        baseUrl: 'http://118.89.50.53:9091/filebase'
       }
     },
     created: function () {
@@ -45,7 +45,7 @@
     methods:{
       fetchData:function () {
         let vm = this
-        let url = 'http://www.sherlochao.com:9091/photosharing/administratirapi/listMember'
+        let url = 'http://118.89.50.53:9091/photosharing/administratirapi/listMember'
         axios.get(url).then(function (res) {
           vm.doList = res.data.data
         }).catch(function (error) {
@@ -53,7 +53,7 @@
         })
       },
       forbit:function (id) {
-        let url = 'http://www.sherlochao.com:9091/photosharing/administratirapi/authorityMember'
+        let url = 'http://118.89.50.53:9091/photosharing/administratirapi/authorityMember'
         axios.get(url,{
           params: {
             memberId: id,
@@ -68,11 +68,11 @@
         })
       },
       permit:function (id) {
-        let url = 'http://www.sherlochao.com:9091/photosharing/administratirapi/authorityMember'
+        let url = 'http://118.89.50.53:9091/photosharing/administratirapi/authorityMember'
         axios.get(url,{
           params: {
             memberId: id,
-            choice: 1
+            choice: 1　
           }
         }).then(function (res) {
           if(res.data.result === 1){

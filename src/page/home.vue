@@ -24,6 +24,20 @@
           </router-link>
         </li>
         <li>
+          <router-link to="examlist" class="link-box">
+            <span class="iconfont Hui-iconfont-feedback1 icon-detail"></span>
+            <span class="txt">我的试卷</span>
+            <span class="iconfont icon-xiangyoujiantou icon-right"></span>
+          </router-link>
+        </li>
+        <li>
+          <router-link to="course" class="link-box">
+            <span class="iconfont Hui-iconfont-feedback1 icon-detail"></span>
+            <span class="txt">我的课程</span>
+            <span class="iconfont icon-xiangyoujiantou icon-right"></span>
+          </router-link>
+        </li>
+        <li>
           <router-link to="/search/star" class="link-box">
             <span class="iconfont Hui-iconfont-star icon-shoucang"></span>
             <span class="txt">我的收藏</span>

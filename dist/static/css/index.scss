@@ -1,0 +1,85 @@
+@import "base/min";
+
+@mixin arrow($position, $borderColor: #666, $width: 8px) {
+	content: '';
+	display: block;
+	width: $width;
+	height: $width;
+	border-top: 1px solid $borderColor;
+	border-left: 1px solid $borderColor;
+	transform-origin: 50%;
+	@if $position == top {
+		transform: rotate(45deg);
+	}
+	@if $position == bottom {
+		transform: rotate(-135deg);
+	}
+	@if $position == left {
+		transform: rotate(-45deg);
+	}
+	@if $position == right {
+		transform: rotate(135deg);
+	}
+}
+
+.index {
+	position: relative;
+	
+	.center {
+		display: flex;
+		margin-top: px2rem(20);
+		justify-content: center;
+		align-items: center;
+		background-color: #fff;
+		.actived {
+			p {
+				color: $bColor !important;
+			}
+		}
+		.list {
+			flex-grow: 1;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			padding: px2rem(20) 0;
+			p {
+				text-align: center;
+				color: $fontC;
+				font-size: px2rem(30);
+			}
+			span {
+				display: block;
+				margin: 0 auto;
+				font-size: px2rem(60);
+				line-height: px2rem(60);
+			}
+		}
+	}
+	.btn {
+		width: px2rem(100);
+		height: px2rem(40);
+		display: block;
+		margin: 0 auto;
+	}
+}
+
+select {
+	position: relative;
+	height: 30px;
+	line-height: 30px;
+	margin-top: 2px;
+	padding: 0 10px;
+	width: 100%;
+	background-color: white;
+	border: 1px solid #f1f1f1;
+	border-radius: 0;
+	font-size: 16px;
+	
+}
+
+.arrow {
+	position: absolute;
+	top: 214px;
+	right: 20px;
+	@include arrow(bottom);
+}

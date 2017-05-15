@@ -1,0 +1,86 @@
+@import "base/min";
+
+.add-pet {
+
+  .c-Publish {
+    padding-top: .5rem;
+    border-bottom: 1px solid #f1f1f1;
+
+    .Pu-text {
+      padding: .2rem .6rem;
+      background-color: white;
+
+      .limit{
+        font-size: .3rem;
+        position: absolute;
+        top: 7.3rem;
+        right: .8rem;
+        color: #f9696c;
+      }
+
+      textarea {
+        padding: 0;
+        margin-bottom: .5rem;
+        border: 0;
+        font-size: .8rem;
+      }
+    }
+    .Pu-img {
+      margin: 1rem 0px;
+      overflow: hidden;
+      padding: 0px 0.5rem;
+
+      .Pu-Add-img input {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        opacity: 0;
+      }
+
+      a {
+        position: relative;
+        display: inline-block;
+        width: 4rem;
+        height: 4rem;
+        overflow: hidden;
+        float: left;
+        margin: 0 1.9% .4rem 1.9%;
+
+        .addImg {
+          width: 3.888rem;
+          height: 3.9rem;
+          text-align: center;
+          line-height: 3.3rem;
+          font-size: 3.5rem;
+          color: #f9696c;
+          border: 1px solid #c7c7c7;
+        }
+
+        > img {
+          height: 4rem;
+        }
+      }
+    }
+  }
+
+  .btn-b {
+    margin-top: px2rem(50);
+  }
+}
+
+textarea {
+  resize: none;
+  width: 100%;
+  -webkit-appearance: none;
+  line-height: 1.2rem;
+  background-color: #fff;
+  border-radius: 3px;
+  outline: 0;
+}
+
+img {
+  width: 100%;
+}
+

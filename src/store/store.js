@@ -20,8 +20,8 @@ const store = new Vuex.Store({
         memberId: '',
         userData: ''
       },
-      apiUrl: 'http://www.sherlochao.com:9091/photosharing/',
-      imgUrl: 'http://www.sherlochao.com:9091/filebase',
+      apiUrl: 'http://118.89.50.53:9091/photosharing/',
+      imgUrl: 'http://118.89.50.53:9091/filebase',
       indexConf: {
         isFooter: true, // 是否显示底部
         isSearch: true, // 是否显示搜索

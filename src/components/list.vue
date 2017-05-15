@@ -33,7 +33,7 @@
 
   let data = {
     doListData: {},
-    baseUrl: 'http://www.sherlochao.com:9091/filebase',
+    baseUrl: 'http://118.89.50.53:9091/filebase',
     memberId: localStorage.getItem('memberId'),
     route:'#/search/user?id=',
     user: ''
@@ -61,7 +61,7 @@
     },
     methods: {
       zan:function (id) {
-        let url = 'http://www.sherlochao.com:9091/photosharing/thumbsupapi/thumbsUp'
+        let url = 'http://118.89.50.53:9091/photosharing/thumbsupapi/thumbsUp'
         let choice,num = event.target.parentNode;
         if(num.classList.contains('hasZan')){
           choice = 2
@@ -91,7 +91,7 @@
         })
       },
       del:function (id) {
-        let url = 'http://www.sherlochao.com:9091/photosharing/sharedapi/sharedHide'
+        let url = 'http://118.89.50.53:9091/photosharing/sharedapi/sharedHide'
 
         axios.get(url, {
           params: {

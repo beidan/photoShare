@@ -1,0 +1,32 @@
+<!DOCTYPE html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>交流圈</title><link rel=stylesheet href=static/css/icon/iconfont.css><script>(function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+                    };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);</script><style>body {
+      background-color: #fff;
+    }
+    body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td{margin:0;padding:0;}
+    body,input,textarea,select,button,table{border-collapse:collapse;border-spacing:0;}
+    body{font:normal 1em/1.25em 'microsoft Yahei',Verdana,Arial,Helvetica,sans-serif;color:#000;-webkit-text-size-adjust:none}
+    h1,h2,h3,h4,h5,h6{font-size:100%;}
+    img,fieldset{border:0 none;}
+    ul,ol,li{list-style:none;}
+    em,address{font-style:normal;}
+    table{border-collapse:collapse;}
+    em,i{font-style:normal;}
+    strong,b{font-weight:normal;}
+    img{border:none;}
+    input,img{vertical-align:middle;}
+    input{outline:none;}
+    *{-webkit-tap-highlight-color: rgba(0, 0, 0, 0);}
+    textarea:focus{outline:0;}
+    a{text-decoration:none;}
+    .clearfix:after{display:block;clear:both;visibility:hidden;height:0;content:" ";font-size:0;}
+    .clearfix{*zoom:1;}</style><link href=./static/css/app.70d885568c73091366c291ebd4308fb8.css rel=stylesheet></head><body><div id=app><router-view></router-view></div><script type=text/javascript src=./static/js/manifest.30b379194ec0442235ab.js></script><script type=text/javascript src=./static/js/vendor.cc4b34c26e8a38d32f98.js></script><script type=text/javascript src=./static/js/app.ccd3a08bd0bcb9e0d894.js></script></body></html>

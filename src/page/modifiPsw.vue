@@ -34,7 +34,7 @@
     },
     methods: {
       loginAction: function () {
-        let url = 'http://www.sherlochao.com:9091/photosharing/memberapi/updatePassword'
+        let url = 'http://118.89.50.53:9091/photosharing/memberapi/updatePassword'
         let memberId = localStorage.getItem('memberId')
 
         var xhr = new XMLHttpRequest()

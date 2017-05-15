@@ -49,7 +49,7 @@
         }else if(this.message.length === 0 && this.imgArr.length === 0){
           alert('发布消息不能为空')
         }else{
-          let url = 'http://www.sherlochao.com:9091/photosharing/sharedapi/publishShared'
+          let url = 'http://118.89.50.53:9091/photosharing/sharedapi/publishShared'
 
           let i=0,len = this.imgArr.length,urlArr=[];
           for(i;i<len;i++){

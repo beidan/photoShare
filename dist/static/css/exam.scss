@@ -1,0 +1,64 @@
+body {
+	height: 100%;
+	background: url("../images/exam_bg.jpg");
+	background-size: 100% 100%;
+}
+
+html {
+	height: 100%;
+}
+
+.exam {
+	margin-bottom: 20px;
+}
+
+.exam_item {
+	width: 90%;
+	padding: 10px 20px;
+	margin: 20px;
+	border-radius: 20px;
+	background-color: rgba(255, 255, 255, 0.8);
+	box-sizing: border-box;
+}
+.exam_item_sub {
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.exam_item_choice{
+	font-size: 14px;
+}
+
+.exam_item_choice.on {
+	color: #f9696c;
+}
+
+.exam_item_choice.TURE {
+	color: #689400;
+}
+
+.exam_submit {
+	width: 300px;
+	margin: 5px auto;
+	height: 40px;
+	line-height: 40px;
+	color: #fff;
+	font-size: 14px;
+	text-align: center;
+	background: #f9696c;
+	border-radius: 2px;
+}
+
+/* 文章
+---------------------------------------- */
+.exam_item dd {
+	color: #333;
+	text-align: center;
+	margin-bottom: 10px;
+	font-size: 18px;
+}
+
+.exam_item dt {
+	font-size: 16px;
+}
+

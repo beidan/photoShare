@@ -30,7 +30,7 @@
       submit: function (e) {
         let vm = this
         let val = e.target.parentNode.querySelector('input').value
-        let url = 'http://www.sherlochao.com:9091/photosharing/commentapi/comment'
+        let url = 'http://118.89.50.53:9091/photosharing/commentapi/comment'
         let memberId = localStorage.getItem('memberId')
 
         if(val.length > 100) {
@@ -47,7 +47,7 @@
               fromMemberNickname: JSON.parse(localStorage.getItem('userMsg')).memberName,
               toMemberNickname: this.$store.state.reply.name,
               toMemberAvatar :'http://g',
-              fromMemberAvatar: 'http://www.sherlochao.com:9091/filebase'+JSON.parse(localStorage.getItem('userMsg')).memberAvatar
+              fromMemberAvatar: 'http://118.89.50.53:9091/filebase'+JSON.parse(localStorage.getItem('userMsg')).memberAvatar
             }
           }else{
             param = {
@@ -57,7 +57,7 @@
               fromMemberNickname: JSON.parse(localStorage.getItem('userMsg')).memberName,
               toMemberNickname: this.$store.state.reply.name,
               toMemberAvatar :'http://g',
-              fromMemberAvatar: 'http://www.sherlochao.com:9091/filebase'+JSON.parse(localStorage.getItem('userMsg')).memberAvatar
+              fromMemberAvatar: 'http://118.89.50.53:9091/filebase'+JSON.parse(localStorage.getItem('userMsg')).memberAvatar
             }
           }
           vm.$store.commit('isLoading', true)

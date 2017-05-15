@@ -11,7 +11,10 @@ import Login from '../page/login'
 import Register from '../page/register'
 import Modifi from '../page/modifiPsw'
 import Admin from '../page/admin'
-
+import Exam from '../page/exam'
+import Examlist from '../page/Examlist'
+import Course from '../page/course'
+import art from '../page/art'
 
 Vue.use(VueRouter)
 
@@ -30,6 +33,10 @@ const routes = [
       {path: '/register', name: 'register', component: Register},
       {path: '/modif', name: 'Modifi', component: Modifi},
       {path: '/admin', name: 'Admin', component: Admin},
+      {path: '/exam/:id',name:'Exam',component:Exam},
+      {path: '/examlist',name:'Examlist',component:Examlist},
+      {path: '/course',name:'Course',component:Course},
+      {path: '/art/:id',name:'art',component:art}
     ]
   }
 ]

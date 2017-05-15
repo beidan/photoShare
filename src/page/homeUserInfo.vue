@@ -31,7 +31,7 @@
       return {
         memberAvatar:'',
         memberName:'',
-        baseUrl:'http://www.sherlochao.com:9091/filebase',
+        baseUrl:'http://118.89.50.53:9091/filebase',
         sex:''
       }
     },
